@@ -1,0 +1,218 @@
+body{
+    background: #F3F5FC;
+    font-family: 'Inter', sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    display: inline-flex;
+    margin: 2% 0 0 1%;
+}
+
+.usuarioInput{
+    display: inline-grid;
+    width: auto;
+    margin: 8% 10% 0 10%;
+}
+
+textarea{
+    border: none;
+}
+
+textarea:focus {
+    border: none;
+    outline: none;
+}
+
+.input-user{
+    font-family: "Inter";
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+
+    resize: none;
+    background-color: transparent;    
+}
+
+.input-user::placeholder{
+    color: #0A3871;
+    font-family: "Inter";
+    font-weight:500;
+}
+
+
+.advertencia{
+    font-size: 12px;
+    color: #495057;
+    opacity: 0.8;
+    margin: auto;
+    margin-left: 0;
+}
+
+.botones{
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.boton_encriptar{
+    width: 20rem;
+    height: 4.2rem;
+    background: #0A3871;
+    border-radius: 24px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+    justify-content: center;
+        
+}
+
+.boton_desencriptar{
+   
+    width: 20rem;
+    height: 4.2rem;
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #0A3871;
+    justify-content: center;
+}
+
+.usuarioOutput{
+    display: inline-flex;
+    flex-direction:column;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.txtarea-output{
+
+    position:relative;
+    text-align: center;
+    margin: 2rem 0 0 0 ;
+    padding: 2rem 2rem;
+    background: #FFFFFF;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;   
+    resize: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #495057;
+    
+}
+
+.noEncontrado{
+    position: absolute;
+    display: inline-flex;
+    flex-direction:column;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#msjNoEncontrado{  
+    font-family: 'Inter';
+    font-weight: bolder;
+    font-size: 24px;
+    text-align: center;
+    line-height: 110%;
+    color: #343A40;
+    width: 80%;
+    
+}
+
+#msjBienvenida{  
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #495057;
+    width: 80%;
+}
+
+.botonCopiar{
+    display: flex;
+    position: absolute;
+    justify-content:center;
+    align-items: center;
+    margin: 37% 0 0 0;
+}
+
+.boton_copiar{ 
+    display: none;
+    justify-content: center;
+    width: 20rem;
+    height: 4.2rem;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #0A3871; 
+}
+
+@media (max-width: 820px) {
+
+    main{
+        display: block;
+    }
+
+    .botones{
+        width: 100%;
+        display: inline-block;
+        margin: auto;
+    }
+
+    .usuarioOutput{
+        width: 100%;
+        height: 300px; 
+    }
+    
+    .txtarea-output{
+        width: 100%;
+        height: 300px;
+        margin: auto;        
+    }
+
+    .noEncontrado{
+        width: 100%;
+    }
+
+    #msjNoEncontrado{  
+        width: 100%;
+        
+    }
+    
+    #msjBienvenida{  
+        
+        width: 100%;
+    }
+
+    .img-encriptar{
+    display: none;
+    }
+
+    
+}
+
+

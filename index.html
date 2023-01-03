@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <main>
+            <div class="logo">
+                <h1><img src="imagenes/Logo.png" alt="logo encriptador"></h1>
+            </div>
+
+            <div class="usuarioInput">
+                <textarea cols="40" rows="10" class="input-user" id="entrada" required placeholder="Ingrese el texto aquí:" autocapitalize="none"></textarea>
+                <h3 class="advertencia">⚠ Solo letras minúsculas y sin acento</h3>
+                <section class="botones">
+                    <input type="button" value="Encriptar" class="boton_encriptar" onclick="encriptar()">
+                    <input type="button" value="Desencriptar" class="boton_desencriptar" onclick="desencriptar()">
+                </section>
+            </div>
+
+            <div class="usuarioOutput">
+                <textarea cols="20" rows="22" class="txtarea-output" id="salida"  readonly></textarea>
+                <div class="noEncontrado">
+                    <img src="imagenes/Muñeco.png" class="img-encriptar" id="imgNoEncontrado">
+                    <h2 id="msjNoEncontrado">Ningún mensaje fue encontrado</h2>
+                    <br>
+                    <h3 id="msjBienvenida">Ingresa el texto que desees encriptar o desencriptar</h3>                    
+                </div>
+                <div class="botonCopiar">
+                    <input type="button" value="Copiar" class="boton_copiar" id="copyid" onclick="copy()">                
+                </div>
+            </div>
+        </main>
+        
+        <script>
+
+             function comprobacionEntrada(){
+                var texto = document.getElementById("entrada").value;
+                const regex = /[^a-z, " "]/; //expresiones regulares
+                
+                if (regex.test(texto)) { //Lo que sea diferente a la expresion regular (a-z) entra al false
+                    var comprobacion = true; //La entrada contiene caracteres especiales 
+                } else {
+                    var comprobacion = false; //La entrada no contiene caracteres especiales
+                }
+                return comprobacion
+            }
+
+            function ocultarNoEncontrado(){
+                document.getElementById("imgNoEncontrado").style.display="none"
+                document.getElementById("msjNoEncontrado").style.display="none"
+                document.getElementById("msjBienvenida").style.display="none"
+                document.getElementById("copyid").style.display="flex"
+            }
+
+            function encriptar(){
+                var texto = document.getElementById("entrada").value;
+                var comp = comprobacionEntrada();
+                if (comp==false){
+                    const diccionario = {a:"ai", e:"enter", i:"imes", o:"ober", u:"ufat"};
+                    let encriptado="";
+                    for (let i = 0; i<texto.length;i++){
+                        encriptado += diccionario[texto[i]] || texto[i];
+                    }
+                    document.getElementById("salida").innerHTML = encriptado;
+                    ocultarNoEncontrado();
+                }
+                else{
+                    alert("Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
+                }
+                
+            }
+        
+            function desencriptar() {
+                var comp = comprobacionEntrada();
+                if (comp == false){
+                    var cifrado = document.getElementById("entrada").value;
+                    document.getElementById("salida").innerHTML = cifrado.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g,"u");
+                    ocultarNoEncontrado();
+                }
+                else{
+                    alert("Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
+                }   
+            }
+
+            function copy() {
+                let copyText = document.querySelector("#salida");
+                copyText.select();
+                document.execCommand("copy");
+            }
+
+            
+
+        </script> 
+    </body>
+</html>
+
+
+
+
+
+
