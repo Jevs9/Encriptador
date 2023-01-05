@@ -27,7 +27,7 @@
             </div>
 
             <div class="usuarioOutput">
-                <textarea cols="20" rows="20" class="txtarea-output" id="salida"  readonly></textarea>
+                <textarea cols="20" rows="18" class="txtarea-output" id="salida"  readonly></textarea>
                 <div class="noEncontrado">
                     <img src="imagenes/Muñeco.png" class="img-encriptar" id="imgNoEncontrado">
                     <h2 id="msjNoEncontrado">Ningún mensaje fue encontrado</h2>
@@ -40,8 +40,11 @@
             </div>
         </main>
         <footer>
-            <img src="imagenes/2022 LOGOJEVS.png" alt="logojevs">
-            <p class = "copyright">Elaborado por Estiven Vivas</p>
+            <a target="_blank" href="https://www.linkedin.com/in/estiven-vivas-icfs"><img src="imagenes/icons8-linkedin-64.png" alt="linkedin"></a>    
+            <img class="logoJevs" src="imagenes/2022 LOGOJEVS.png" alt="logojevs">
+            <a target="_blank" href="https://github.com/Jevs9"><img src="imagenes/icons8-github-64.png" alt="github"></a>
+            <p class = "copyright">Elaborado por Estiven Vivas</p>                
+                
         </footer>
         
         <script>
@@ -50,7 +53,7 @@
                 var texto = document.getElementById("entrada").value;
                 const regex = /[^a-z, " "]/; //expresiones regulares
                 
-                if (regex.test(texto)) { //Lo que sea diferente a la expresion regular (a-z) entra al false
+                if (regex.test(texto) | (texto==='')){ //Lo que sea diferente a la expresion regular (a-z) entra al false
                     var comprobacion = true; //La entrada contiene caracteres especiales
                     document.getElementById("adv").style.color="red"
                 } else {
@@ -80,7 +83,7 @@
                     ocultarNoEncontrado();
                 }
                 else{
-                    alert("Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
+                    alert("Ingrese texto: Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
                 }      
             }
             function desencriptar() {
@@ -92,7 +95,7 @@
                     ocultarNoEncontrado();
                 }
                 else{
-                    alert("Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
+                    alert("Ingrese texto: Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
                 }   
             }
 
