@@ -19,7 +19,7 @@
 
             <div class="usuarioInput">
                 <textarea cols="40" rows="10" class="input-user" id="entrada" required placeholder="Ingrese el texto aquí:" autocapitalize="none"></textarea>
-                <h3 class="advertencia">⚠ Solo letras minúsculas y sin acento</h3>
+                <h3 class="advertencia" id="adv">⚠ Solo letras minúsculas y sin acento</h3>
                 <section class="botones">
                     <input type="button" value="Encriptar" class="boton_encriptar" onclick="encriptar()">
                     <input type="button" value="Desencriptar" class="boton_desencriptar" onclick="desencriptar()">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="usuarioOutput">
-                <textarea cols="20" rows="22" class="txtarea-output" id="salida"  readonly></textarea>
+                <textarea cols="20" rows="20" class="txtarea-output" id="salida"  readonly></textarea>
                 <div class="noEncontrado">
                     <img src="imagenes/Muñeco.png" class="img-encriptar" id="imgNoEncontrado">
                     <h2 id="msjNoEncontrado">Ningún mensaje fue encontrado</h2>
@@ -39,6 +39,10 @@
                 </div>
             </div>
         </main>
+        <footer>
+            <img src="imagenes/2022 LOGOJEVS.png" alt="logojevs">
+            <p class = "copyright">Elaborado por Estiven Vivas</p>
+        </footer>
         
         <script>
 
@@ -47,7 +51,8 @@
                 const regex = /[^a-z, " "]/; //expresiones regulares
                 
                 if (regex.test(texto)) { //Lo que sea diferente a la expresion regular (a-z) entra al false
-                    var comprobacion = true; //La entrada contiene caracteres especiales 
+                    var comprobacion = true; //La entrada contiene caracteres especiales
+                    document.getElementById("adv").style.color="red"
                 } else {
                     var comprobacion = false; //La entrada no contiene caracteres especiales
                 }
@@ -65,6 +70,7 @@
                 var texto = document.getElementById("entrada").value;
                 var comp = comprobacionEntrada();
                 if (comp==false){
+                    document.getElementById("adv").style.color="#495057"
                     const diccionario = {a:"ai", e:"enter", i:"imes", o:"ober", u:"ufat"};
                     let encriptado="";
                     for (let i = 0; i<texto.length;i++){
@@ -75,13 +81,12 @@
                 }
                 else{
                     alert("Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
-                }
-                
+                }      
             }
-        
             function desencriptar() {
                 var comp = comprobacionEntrada();
                 if (comp == false){
+                    document.getElementById("adv").style.color="#495057"
                     var cifrado = document.getElementById("entrada").value;
                     document.getElementById("salida").innerHTML = cifrado.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g,"u");
                     ocultarNoEncontrado();
@@ -95,10 +100,8 @@
                 let copyText = document.querySelector("#salida");
                 copyText.select();
                 document.execCommand("copy");
+                alert("texto copiado exitosamente en el portapapeles")
             }
-
-            
-
         </script> 
     </body>
 </html>
