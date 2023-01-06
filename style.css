@@ -53,12 +53,13 @@ textarea:focus {
 }
 
 .botones{
-    display: inline-flex;
-    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .boton_encriptar{
-    width: 20rem;
+    width: auto;
     height: 4.2rem;
     background: #0A3871;
     border-radius: 24px;
@@ -71,7 +72,8 @@ textarea:focus {
     justify-content: center;
     transition: 0.5s all;
     cursor: pointer;
-    margin: 0 2rem 0 0;
+    margin: 0 2rem 1rem 2rem;
+    padding: 0 5rem;
 }
 
 .boton_encriptar:hover{
@@ -90,7 +92,7 @@ textarea:focus {
 }
 
 .boton_desencriptar{
-    width: 20rem;
+    width: auto;
     height: 4.2rem;
     background: #D8DFE8;
     border: 1px solid #0A3871;
@@ -103,7 +105,8 @@ textarea:focus {
     justify-content: center;
     transition: 0.5s all;
     cursor: pointer;
-    
+    margin: 0 2rem 0 2rem;
+    padding: 0 4rem;
 }
 
 .boton_desencriptar:hover{
@@ -232,7 +235,7 @@ footer{
     margin: 0 0 0 1rem;
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 940px) {
 
     main{
         display: block;
@@ -250,24 +253,6 @@ footer{
         width: auto;
     }
 
-    .botones{
-        width: auto;
-        display: inline-block;
-        margin: auto;
-        justify-content: center;
-    }
-    .boton_encriptar{
-        margin: 0 2rem 4% 2rem ;
-        width: auto;
-        padding: 0 3rem;    
-    }
-
-    .boton_desencriptar{
-        margin: 0 0 0 2rem;
-        width: auto;
-        padding: 0 2rem;    
-    }
-
     .advertencia{
         display: inline-block;
         margin: auto;
@@ -275,38 +260,31 @@ footer{
     }
 
     .usuarioOutput{
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 300px;
-
-         
     }
     
     .txtarea-output{
         width: 80%;
         height: 60%;
-        margin: 1rem 4rem 3rem 4rem ; 
-         
-           
     }
 
     .noEncontrado{
-        width: 100%;
-        margin: 1rem 4rem 2rem 4rem;
-        
+        width: auto;
     }
 
     #msjNoEncontrado{  
         width: 80%;
-        
     }
     
     #msjBienvenida{  
-        
         width: 80%;
     }
 
     .img-encriptar{
-    display: none;
+        display: none;
     }
 
     footer{
