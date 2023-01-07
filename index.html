@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-
     </head>
 
     <body>
@@ -18,7 +17,7 @@
             </div>
 
             <div class="usuarioInput">
-                <textarea cols="40" rows="7" class="input-user" id="entrada" required placeholder="Ingrese el texto aquí:" autocapitalize="none"></textarea>
+                <textarea cols="40" rows="15" class="input-user" id="entrada" required placeholder="Ingrese el texto aquí:" autocapitalize="none"></textarea>
                 <h3 class="advertencia" id="adv">⚠ Solo letras minúsculas y sin acento</h3>
                 <section class="botones">
                     <input type="button" value="Encriptar" class="boton_encriptar" onclick="encriptar()">
@@ -27,24 +26,26 @@
             </div>
 
             <div class="usuarioOutput">
-                <textarea cols="20" rows="15" class="txtarea-output" id="salida"  readonly></textarea>
+                <textarea cols="30" rows="20" class="txtarea-output" id="salida"  readonly></textarea>
                 <div class="noEncontrado">
                     <img src="imagenes/Muñeco.png" class="img-encriptar" id="imgNoEncontrado">
                     <h2 id="msjNoEncontrado">Ningún mensaje fue encontrado</h2>
                     <br>
-                    <h3 id="msjBienvenida">Ingresa el texto que desees encriptar o desencriptar</h3>                    
+                    <h3 id="msjBienvenida">Ingresa el texto que desees encriptar o desencriptar</h3>
+                             
                 </div>
                 <div class="botonCopiar">
-                    <input type="button" value="Copiar" class="boton_copiar" id="copyid" onclick="copy()">                
+                    <input type="button" value="Copiar" class="boton_copiar" id="copyid" onclick="copy()">               
                 </div>
             </div>
         </main>
         <footer>
-            <a target="_blank" href="https://www.linkedin.com/in/estiven-vivas-icfs"><img src="imagenes/icons8-linkedin-64.png" alt="linkedin"></a>    
-            <img class="logoJevs" src="imagenes/2022 LOGOJEVS.png" alt="logojevs">
-            <a target="_blank" href="https://github.com/Jevs9"><img src="imagenes/icons8-github-64.png" alt="github"></a>
+            <div>
+                <a target="_blank" href="https://www.linkedin.com/in/estiven-vivas-icfs"><img src="imagenes/icons8-linkedin-64.png" alt="linkedin"></a>    
+                <img class="logoJevs" src="imagenes/2022 LOGOJEVS.png" alt="logojevs">
+                <a target="_blank" href="https://github.com/Jevs9"><img src="imagenes/icons8-github-64.png" alt="github"></a>
+            </div>
             <p class = "copyright">Elaborado por Estiven Vivas</p>                
-                
         </footer>
         
         <script>
