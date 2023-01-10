@@ -224,7 +224,7 @@ footer{
     font-weight: bolder;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
 
    body{
     width: auto;
@@ -301,7 +301,7 @@ footer{
     }
 }
 
-@media (min-width: 481px) and (max-width: 940px){
+@media (min-width: 768px) and (max-width: 1023px){
         
     body{
     width: 100%;
