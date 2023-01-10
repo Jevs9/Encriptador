@@ -144,7 +144,8 @@ textarea:focus {
     font-weight: 400;
     font-size: 24px;
     line-height: 150%;
-    color: #495057;  
+    color: #495057;
+    
 }
 
 .noEncontrado{
@@ -224,6 +225,7 @@ footer{
 }
 
 @media (max-width: 480px) {
+
    body{
     width: auto;
     display: inline-block;
@@ -240,6 +242,10 @@ footer{
         margin: 2rem 5rem;
     }
 
+    .advertencia{
+        font-size: 24px;
+    }
+
     .botones{
         display: inline-block;
         width: 100%;
@@ -250,16 +256,20 @@ footer{
     .boton_encriptar{
         margin: 0 0 2rem 0;
         width: 100%;
+        font-size: 28px;
+        height: 7rem;
     }
 
     .boton_desencriptar{
        margin: 0;
        width: 100%;
+       font-size: 28px;
+       height: 7rem;
     }
 
     .usuarioOutput{
         margin: 0 3rem;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
     }
 
@@ -270,12 +280,24 @@ footer{
 
     .noEncontrado{
         width: 100%;
-        margin: 2rem 2rem;
+        margin: 0 2rem 5rem 2rem;
 
+    }
+
+    #msjNoEncontrado{
+        font-size: 30px;
+    }
+
+    #msjBienvenida{
+        font-size: 24px;
     }
 
     .img-encriptar{
         display: none;
+    }
+
+    .boton_copiar{
+        margin: 0;
     }
 }
 
@@ -301,7 +323,7 @@ footer{
 
     .usuarioOutput{
         margin: 0 3rem;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
     }
 
@@ -312,12 +334,16 @@ footer{
 
     .noEncontrado{
         width: 100%;
-        margin: 2rem 2rem;
+        margin: 0 2rem 8rem 2rem;
 
     }
 
     .img-encriptar{
         display: none;
+    }
+
+    .boton_copiar{
+        margin: 0;
     }
 
 }
