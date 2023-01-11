@@ -26,7 +26,7 @@
             </div>
 
             <div class="usuarioOutput">
-                <textarea cols="30" rows="20" class="txtarea-output" id="salida"  readonly></textarea>
+                <textarea cols="30" rows="15" class="txtarea-output" id="salida"  readonly></textarea>
                 <div class="noEncontrado">
                     <img src="imagenes/Muñeco.png" class="img-encriptar" id="imgNoEncontrado">
                     <h2 id="msjNoEncontrado">Ningún mensaje fue encontrado</h2>
@@ -52,35 +52,35 @@
 
              function comprobacionEntrada(){
                 var texto = document.getElementById("entrada").value;
-                const regex = /[^a-z, " "]/; //expresiones regulares
-                
-                if (regex.test(texto) | (texto==='')){ //Lo que sea diferente a la expresion regular (a-z) entra al false
+                const regex = /[^a-z0-9|°¬!"#$%&/()='?¿¡+*;,.:_ -,\n]/; //expresiones regulares incluye letras minúsculas, digitos, caracteres del teclado, espacio y salto de linea
+                if (regex.test(texto) | (texto==='')){ //Evalúa la expresión regular y que haya texto en el input del usuario
                     var comprobacion = true; //La entrada contiene caracteres especiales
-                    document.getElementById("adv").style.color="red"
-                } else {
+                    document.getElementById("adv").style.color="red";//pinta de rojo la advertencia
+                } 
+                else {
                     var comprobacion = false; //La entrada no contiene caracteres especiales
                 }
-                return comprobacion
+                return comprobacion;
             }
 
             function ocultarNoEncontrado(){
-                document.getElementById("imgNoEncontrado").style.display="none"
-                document.getElementById("msjNoEncontrado").style.display="none"
-                document.getElementById("msjBienvenida").style.display="none"
-                document.getElementById("copyid").style.display="flex"
+                document.getElementById("imgNoEncontrado").style.display="none"; //apaga
+                document.getElementById("msjNoEncontrado").style.display="none"; //apaga
+                document.getElementById("msjBienvenida").style.display="none"; //apaga
+                document.getElementById("copyid").style.display="flex"; //prende boton copiar
             }
 
             function encriptar(){
                 var texto = document.getElementById("entrada").value;
                 var comp = comprobacionEntrada();
-                if (comp==false){
-                    document.getElementById("adv").style.color="#495057"
-                    const diccionario = {a:"ai", e:"enter", i:"imes", o:"ober", u:"ufat"};
-                    let encriptado="";
+                if (comp==false){ //Si no hay caracteres especiales ni mayusc procede a encriptar
+                    document.getElementById("adv").style.color="#495057"; //quita el color rojo de la advertencia
+                    const diccionario = {a:"ai", e:"enter", i:"imes", o:"ober", u:"ufat"}; //claves de encriptación
+                    let encriptado=""; //inicialización de variable que va almacenar texto encriptado
                     for (let i = 0; i<texto.length;i++){
-                        encriptado += diccionario[texto[i]] || texto[i];
+                        encriptado += diccionario[texto[i]] || texto[i]; //construcción de texto encriptado
                     }
-                    document.getElementById("salida").innerHTML = encriptado;
+                    document.getElementById("salida").innerHTML = encriptado; //envia el texto encriptado a la txtarea
                     ocultarNoEncontrado();
                 }
                 else{
@@ -89,22 +89,22 @@
             }
             function desencriptar() {
                 var comp = comprobacionEntrada();
-                if (comp == false){
-                    document.getElementById("adv").style.color="#495057"
+                if (comp == false){//Si no hay caracteres especiales ni mayusc procede a encriptar
+                    document.getElementById("adv").style.color="#495057";//quita el color rojo de la advertencia
                     var cifrado = document.getElementById("entrada").value;
                     document.getElementById("salida").innerHTML = cifrado.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g,"u");
-                    ocultarNoEncontrado();
+                    ocultarNoEncontrado();//busca y reemplaza en el texto
                 }
                 else{
                     alert("Ingrese texto: Solo se aceptan letras minúsculas sin acento ni caracteres especiales");
                 }   
             }
 
-            function copy() {
+            function copy() { //función que llama el botón copiar
                 let copyText = document.querySelector("#salida");
                 copyText.select();
                 document.execCommand("copy");
-                alert("texto copiado exitosamente en el portapapeles")
+                alert("texto copiado exitosamente en el portapapeles");
             }
         </script> 
     </body>
