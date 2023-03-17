@@ -29,7 +29,7 @@
 
 ## 🛠️ Abre y ejecuta el proyecto
 
-**https://jevs9.github.io/Desafio1_Alura/**
+**https://jevs9.github.io/Encriptador/**
 
 ## :heavy_check_mark: Tecnologias utilizadas
 - [HTML5](https://developer.mozilla.org/es/docs/Glossary/HTML5)
